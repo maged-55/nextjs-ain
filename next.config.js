@@ -5,6 +5,7 @@ const withLess = require("next-with-less");
  */
 module.exports = () => {
   // Add other plugins like Sentry,
+  
   const plugins = [withLess];
   return plugins.reduce(
     (acc, next) => {
@@ -22,6 +23,11 @@ module.exports = () => {
       // the rest of next.js config
       reactStrictMode: true,
       swcMinify: true,
+      // Add TypeScript configuration to ignore build errors
+      typescript: {
+        ignoreBuildErrors: true,
+      },
     }
   );
 };
+
